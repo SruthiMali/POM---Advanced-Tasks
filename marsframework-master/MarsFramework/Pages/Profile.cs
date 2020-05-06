@@ -55,13 +55,9 @@ namespace MarsFramework.Pages
         [FindsBy(How = How.XPath, Using = "//button[@type='button'][contains(.,'Save')]")]
         private IWebElement ChangePasswordSave { get; set; }
 
-        
-
         internal void AddDescription()
         {
-
             try
-
             {
                 GlobalDefinitions.wait(5000);
 
@@ -78,7 +74,6 @@ namespace MarsFramework.Pages
                 //Click on Save button
                 DescriptionSave.Click();
 
-
                 // Validate if user added description successfully
                 string ExpectedValue = "Description has been saved successfully";
                 string ActualValue = GlobalDefinitions.driver.FindElement(By.XPath("//div[@class='ns-box-inner']")).Text;
@@ -92,12 +87,9 @@ namespace MarsFramework.Pages
                 //Write Log reports 
                 Base.test.Log(LogStatus.Info, "user added description successfully");
 
-
-
             }
             catch (Exception e)
             {
-
                 // Print in Console
                 Console.WriteLine("Failed - user not added description");
 
@@ -111,13 +103,11 @@ namespace MarsFramework.Pages
             //Write Log reports 
             Base.test.Log(LogStatus.Info, "Clicked Add Description Icon");
 
-
         }
 
         internal void EditDescription()
         {
             try
-
             {
                 GlobalDefinitions.wait(2000);
 
@@ -138,7 +128,6 @@ namespace MarsFramework.Pages
                 //Click on Save button
                 DescriptionSave.Click();
 
-
                 // Validate if user added description successfully
                 string ExpectedValue = "Description has been saved successfully";
                 string ActualValue = GlobalDefinitions.driver.FindElement(By.XPath("//div[@class='ns-box-inner']")).Text;
@@ -152,12 +141,9 @@ namespace MarsFramework.Pages
                 //Write Log reports 
                 Base.test.Log(LogStatus.Info, "user edited description successfully");
 
-
-
             }
             catch (Exception e)
             {
-
                 // Print in Console
                 Console.WriteLine("Failed - user not edited description");
 
@@ -170,7 +156,6 @@ namespace MarsFramework.Pages
 
             //Write Log reports 
             Base.test.Log(LogStatus.Info, "Clicked edit Description Icon");
-
 
         }
 
@@ -194,7 +179,6 @@ namespace MarsFramework.Pages
                     
                     Username.SendKeys(Keys.ArrowDown);
                 }
-
 
                 // Click on Change Password
                ChangePassword.Click();
@@ -220,12 +204,9 @@ namespace MarsFramework.Pages
                 //Write Log reports 
                 Base.test.Log(LogStatus.Info, "user able to change password successfully");
 
-
-
             }
             catch (Exception e)
             {
-
                 // Print in Console
                 Console.WriteLine("Failed - user unable to change password ");
 

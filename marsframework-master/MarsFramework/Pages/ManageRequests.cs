@@ -19,7 +19,6 @@ namespace MarsFramework.Pages
             PageFactory.InitElements(GlobalDefinitions.driver, this);
         }
 
-
         //Click on Manage Requests link
         [FindsBy(How = How.XPath, Using = "//div[@class='ui dropdown link item']")]
         private IWebElement manageRequestsLink { get; set; }
@@ -34,20 +33,16 @@ namespace MarsFramework.Pages
 
         internal void Requests()
         {
-            //Populate the Excel Sheet
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "ManageRequests");
-
         }
 
         internal void ClickOnnManageRequestsLink()
         {
-            
             //defining driver wait
             GlobalDefinitions.wait(2000);
 
             // Click on Manage Requests link
             manageRequestsLink.Click();
-
 
             // Get current URL and store in a variable
             String CurrentUrl = GlobalDefinitions.driver.Url;
@@ -58,15 +53,13 @@ namespace MarsFramework.Pages
             //defining driver wait
             GlobalDefinitions.wait(2000);
 
-
             // Validate if user had navigated to Manage Requests page successfully
-
             if (CurrentUrl == "http://192.168.99.100:5000/Account/Profile")
          
             {
                 Console.WriteLine("Passed - Manage Requests link takes user to Manage Requests page succesfully");
-
             }
+
             else
             {
                 Console.WriteLine("Failed - Manage Requests link not taken user to Manage Requests page");
@@ -80,11 +73,9 @@ namespace MarsFramework.Pages
 
             // Assertion on Manage Requests link current Url VS Expected Url
             Assert.That(CurrentUrl, Is.EqualTo("http://192.168.99.100:5000/Account/Profile"));
-           
-
+          
             //Write Log reports 
             Base.test.Log(LogStatus.Info, "Clicked Manage Requests Link");
-
 
         }
 
@@ -127,7 +118,6 @@ namespace MarsFramework.Pages
                     // Print in Console
                     Console.WriteLine("Failed - Received Requests link not taken user to Received Requests page");
 
-
                     //take screen shot and save with given name
                     GlobalDefinitions.SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Not Navigated to Received Requests page");
 
@@ -146,13 +136,11 @@ namespace MarsFramework.Pages
             //Write Log reports 
             Base.test.Log(LogStatus.Info, "Clicked Received Requests Link");
 
-
         }
 
 
         internal void ClickOnSentRequests()
         {
-
             try
             {
                 // To mouse hover Manage Requests link using Actions
@@ -182,7 +170,6 @@ namespace MarsFramework.Pages
                     // Print in Console
                     Console.WriteLine("Failed - Sent Requests link not taken user to Sent Requests page");
 
-
                     //take screen shot and save with given name
                     GlobalDefinitions.SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Not Navigated to Sent Requests page");
 
@@ -193,7 +180,6 @@ namespace MarsFramework.Pages
             }
             catch (Exception e)
             {
-
                 // Catch block to handle errors
                 Base.test.Log(LogStatus.Info, "Test Failed ", e.Message);
             }
@@ -201,14 +187,12 @@ namespace MarsFramework.Pages
             // Assertion on Received Requests link current Url VS Expected Url
             //Assert.That(SentRequestCurrentUrl, Is.EqualTo("http://192.168.99.100:5000/Home/SentRequest"));
 
-
             //Write Log reports 
             Base.test.Log(LogStatus.Info, "Clicked Sent Requests Link");
 
         }
 
     }
-
 
 
 }

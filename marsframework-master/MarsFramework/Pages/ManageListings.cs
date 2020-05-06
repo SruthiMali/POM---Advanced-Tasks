@@ -12,9 +12,7 @@ namespace MarsFramework.Pages
             PageFactory.InitElements(Global.GlobalDefinitions.driver, this);
         }
 
-        
-
-        //Click on Manage Listings Link
+       //Click on Manage Listings Link
         [FindsBy(How = How.LinkText, Using = "Manage Listings")]
         private IWebElement manageListingsLink { get; set; }
 
@@ -60,21 +58,30 @@ namespace MarsFramework.Pages
         }
 
         internal void ClickOnShareSkillButton()
-        {   // Because of application problem we need to click Skill button first, then ManageListings Link
+        {
+            // Because of application problem we need to click Skill button first, then ManageListings Link
             //Click on ShareSkill Button
-            //Thread.Sleep(5000);
+           
+            //defining driver wait
             GlobalDefinitions.wait(5000);
+
+            //Click on Shareskill button
             ShareSkillButton.Click();
+
+            //Write Log reports
             Base.test.Log(LogStatus.Info, "Clicked Shareskill Button");
 
         }
 
         internal void ClickOnmanageListingsLink()
         {
-            //Click on manageListingsLink
-            //Thread.Sleep(5000);
+            //defining driver wait
             GlobalDefinitions.wait(5000);
+
+            //Click on manageListingsLink
             manageListingsLink.Click();
+
+            //Write Log reports
             Base.test.Log(LogStatus.Info, "Clicked Manage Listings Link");
 
         }
@@ -83,6 +90,8 @@ namespace MarsFramework.Pages
         {
             ////View the listing
             view.Click();
+
+            //Write Log reports
             Base.test.Log(LogStatus.Info, "Clicked Save Button");
         }
 
@@ -90,10 +99,17 @@ namespace MarsFramework.Pages
         {
             //Edit the listing
             edit.Click();
+
+            //Clear the title textbox
             Title.Clear();
+
             //Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2,"Title"));
             Title.SendKeys("Selenium");
+
+            //Click on Save button
             Save.Click();
+
+            //Write Log reports
             Base.test.Log(LogStatus.Info, "Clicked Edit Button");
 
         }
@@ -105,12 +121,16 @@ namespace MarsFramework.Pages
             {
                 // perform action i.e Click on Yes 
                 clickYesButton.Click();
+
+                //Write Log reports
                 Base.test.Log(LogStatus.Info, "Clicked on YES button for delete");
             }
             else
             {
                 // perform action i.e Click on No
                 clickNoButton.Click();
+
+                //Write Log reports
                 Base.test.Log(LogStatus.Info, "Clicked on NO  button for delete");
             }
 
